@@ -216,11 +216,11 @@
             });
 
             if (!act1Correct) {
-                reportErrors.push("❌ <strong>Activity 1:</strong> Mineral & Symptom pairs are incomplete or incorrect.");
+                reportErrors.push("❌ <strong>Activity 1:</strong> Section 1 pairs are incomplete or incorrect.");
                 elementsToScrollTo.push(document.getElementById('activity-1'));
             }
             if (!act2Correct) {
-                reportErrors.push("❌ <strong>Activity 2:</strong> Hydration & Heat Condition matches are incorrect.");
+                reportErrors.push("❌ <strong>Activity 2:</strong> Section 2 pairs are incomplete or incorrect.");
                 elementsToScrollTo.push(document.getElementById('activity-2'));
             }
 
@@ -232,7 +232,7 @@
             } else {
                 if (q3Dropdown) q3Dropdown.classList.add('wrong-zone');
                 q3Correct = false;
-                reportErrors.push("❌ <strong>Question 3:</strong> Incorrect assessment of rapid water intake.");
+                reportErrors.push("❌ <strong>Question 3:</strong> Incorrect or incomplete answer provided.");
                 if (q3Dropdown) elementsToScrollTo.push(q3Dropdown.parentElement);
             }
 
