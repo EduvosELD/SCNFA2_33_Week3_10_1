@@ -1,0 +1,69 @@
+.fixed-corner {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.nav-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  color: var(--bs-primary);
+  text-decoration: none;
+  transition: opacity 0.2s;
+  z-index: 1050;
+}
+
+.nav-arrow:hover {
+  opacity: 0.7;
+}
+
+.nav-arrow-right {
+  right: 20px;
+}
+
+.nav-arrow-left {
+  left: 20px;
+}
+
+#sortInput {
+  text-align: left;
+  line-height: 1.5;
+}
+
+#congratsMessage {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%) translateY(50px);
+  z-index: 2000;
+  background-color: #28a745;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(40, 167, 69, 0.4);
+  font-weight: bold;
+  font-size: 1.25rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#congratsMessage.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.is-valid-cell {
+  border-color: #198754 !important;
+  background-color: rgba(25, 135, 84, 0.05) !important;
+}
+
+.is-invalid-cell {
+  border-color: #dc3545 !important;
+  background-color: rgba(220, 53, 69, 0.05) !important;
+}
+

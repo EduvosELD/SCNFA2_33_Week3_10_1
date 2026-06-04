@@ -1,0 +1,304 @@
+/* --- Master Game Interface Layout --- */
+
+.matching-experience-container {
+  width: 100%;
+  background: #ffffff;
+  padding: 20px 10px;
+}
+
+.activity-main-title {
+  color: #1e3a8a;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.activity-section {
+  margin-bottom: 40px;
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.activity-heading {
+  color: #1e3a8a;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.instructions {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+/* --- Drag & Drop Grid Core Mechanics --- */
+
+.matching-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+@media (max-width: 768px) {
+  .matching-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* --- Interactive Cards Styles --- */
+
+.item {
+  background: #f1f5f9;
+  border: 2px solid #cbd5e1;
+  padding: 15px;
+  border-radius: 8px;
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  transition: all 0.2s ease;
+  cursor: grab;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.item:active {
+  cursor: grabbing;
+}
+
+.item.dragging {
+  opacity: 0.4;
+  border-style: dashed;
+}
+
+/* --- Dropzone Target Areas --- */
+
+.dropzone-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #ffffff;
+  border: 2px dashed #cbd5e1;
+  border-radius: 8px;
+  padding: 12px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.dropzone-container.drag-over {
+  background: #e0f2fe;
+  border-color: #38bdf8;
+}
+
+.right-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #334155;
+}
+
+.dropzone {
+  min-height: 55px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  border: 1px inset #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+/* Snap Element Inside Target Styles */
+
+.dropzone .item {
+  width: 100%;
+  margin: 0;
+  background: #e0f2fe;
+  border-color: #0284c7;
+  animation: snapIn 0.2s ease-out;
+}
+
+@keyframes snapIn {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* --- Submission Evaluation Visual States --- */
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #e2e8f0;
+}
+
+.correct-zone {
+  border-color: #22c55e !important;
+  background-color: #f0fdf4 !important;
+}
+
+.wrong-zone {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
+.feedback-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.feedback-icon {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-left: 10px;
+}
+
+.correct-text {
+  color: #22c55e;
+}
+
+.wrong-text {
+  color: #ef4444;
+}
+
+/* --- Reinforced Congratulations Modal Window --- */
+
+.modal-crown-icon {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  animation: pulse 1.5s infinite;
+}
+
+.modal-congrats-title {
+  color: #22c55e;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 5px;
+  letter-spacing: -0.5px;
+}
+
+.modal-congrats-subtitle {
+  color: #1e3a8a;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.congrats-message-box {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 18px;
+  text-align: left;
+}
+
+.congrats-message-box p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.congrats-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.congrats-features li {
+  color: #14532d;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.badge-check {
+  background-color: #22c55e;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Input Feedback Borders */
+
+#q4-input, #q5-input {
+  border: 2px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 8px 12px;
+  transition: all 0.2s ease-in-out;
+}
+
+#q4-input:focus, #q5-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* Base structural adjustments for validation icons */
+
+.feedback-icon {
+  font-weight: bold;
+  margin-left: 8px;
+  display: inline-block;
+}
+
+.correct-text {
+  color: #22c55e !important;
+}
+
+.wrong-text {
+  color: #ef4444 !important;
+}
+
+/* Form block style feedback colors */
+
+.correct-zone {
+  border: 2px solid #22c55e !important;
+  background-color: #f0fdf4 !important;
+}
+
+.wrong-zone {
+  border: 2px solid #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
